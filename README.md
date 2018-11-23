@@ -36,7 +36,7 @@
    + 상세 화면 댓글의 경우 Ajax 처리를 통해 DB 저장 하였고, 댓글DB와 회원정보DB를 join 하여 댓글 리스트를 구현.
    
   2. 개아파 -> 개병원
- ![default](https://user-images.githubusercontent.com/40861712/48951002-625e4e00-ef80-11e8-8b87-c1db76d7344e.png)
+![default](https://user-images.githubusercontent.com/40861712/48951002-625e4e00-ef80-11e8-8b87-c1db76d7344e.png)
  
    + 지방행정인허가데이터(LOCALDATA)에서 서울 동물병원 자료를 받아 지도API를 통해 위도, 경도 값을 DB에 사전 저장.
    + 사전 저장된 위도, 경도 값을 지도API의 클러스터로 지도 구현.

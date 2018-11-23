@@ -13,5 +13,5 @@
 + DB : Oracle, MongoDB
 + FRAMEWORK : Spring, MyBatis
 + 사용오픈API : 카카오지도API, 다음 우편번호API, Open Weather Map API
-+ 사용자료 : 지방행정인허가데이터(LOCALDATA) 동물병원 
++ 사용자료 : 지방행정인허가데이터(LOCALDATA) 동물병원 엑셀자료
 + 기타 : HTML, CSS, bootstrap

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dogTalk">
+
+	<insert id="addDogTalk" parameterType="java.util.HashMap">
+		insert into dogTalk values(dogTalk_seq.nextval, #{talker}, #{content}, #{picture}, #{address}, #{writedate})	
+	</insert>
+
+<!-- 게시글 전부 뽑는거 -->
+	<select id="getDogTalk" resultType="java.util.HashMap" >
+		select * from dogTalk order by no desc
+	</select>
+	
+<!-- 종류별 데이터 뽑는거 -->
+	<select id="getDogListByType" resultType="java.util.HashMap" parameterType="java.lang.Integer">
+		select * from dogList where type=#{type}  order by name asc
+	</select>
+	
+	<select id="getSomeFromDogTalk" resultType="java.util.HashMap">
+		select * from dogTalk order by writedate desc
+	</select>
+	
+<!-- 특정 개가 작성한 talk 뽑는거 -->
+	<select id="getByMyDogTalk" resultType="java.util.HashMap" parameterType="java.lang.String">
+		select * from dogtalk where talker = #{talker} order by writedate desc
+	</select>
+	
+</mapper>
+

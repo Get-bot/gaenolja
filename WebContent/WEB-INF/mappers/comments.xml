@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="comments">
+<!-- 댓글 저장하는거 -->
+	<insert id="addByComments" parameterType="java.util.HashMap">
+		insert into comments values(opinion_seq.nextval, #{comments}, #{talker}, #{ino}, sysdate, #{serial}, #{nick})
+	</insert>
+
+<!-- 특정 게시글 댓글 전부 뽑는거(오름차순) -->
+	<select id="getAllByComments" resultType="java.util.HashMap" parameterType="java.lang.Integer">
+		select * from comments where ino=#{ino} order by regday asc
+	</select>
+
+<!-- 아이디별 댓글 뽑기 -->
+	<select id="getByParcelComments" resultType="java.util.HashMap" parameterType="java.lang.String">
+		select * from parcel join (select * from comments where talker=#{talker} order by regday desc)c on parcel.no = c.ino
+	</select>
+
+	
+</mapper>
+

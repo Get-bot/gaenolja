@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="together">
+	<!-- 게시글 저장하는거 -->
+	<insert id="addTogetherBoard" parameterType="java.util.HashMap">
+		insert into
+		togetherboard values(togetherboard_seq.nextval,
+		#{title},#{content},to_date(#{day},'YYYY-MM-DD
+		HH24:MI'),#{area},#{latitude},#{longitude},0,0,#{address},#{nick})
+	</insert>
+
+	<!-- 게시글 전부 뽑는거 -->
+	<select id="getAllTogether" resultType="java.util.HashMap">
+		select * from togetherboard where day > sysdate order by no desc
+	</select>
+
+	<!-- 특정 게시글 데이터 뽑는거 -->
+	<select id="getOneByNo" resultType="java.util.HashMap"
+		parameterType="java.lang.String">
+		select * from togetherboard where no=#{no}
+	</select>
+	<!-- 특정 지역 데이터 뽑는거 -->
+	<select id="getAllByArea" resultType="java.util.HashMap">
+		select * from togetherboard where area=#{area}
+	</select>
+	<!-- look up -->
+	<update id="updatelookup" parameterType="java.lang.String">
+		update togetherboard set
+		lookup = lookup+1 where no=#{no}
+	</update>
+
+	<!-- good -->
+	<update id="updategood" parameterType="java.lang.String">
+		update togetherboard set
+		good = good+1 where no=#{no}
+	</update>
+	<!-- good ajax -->
+	<select id="getGoodByNo" parameterType="java.lang.String"
+		resultType="java.util.HashMap">
+		select good from togetherboard where no=#{no}
+	</select>
+
+	<!-- 특정 닉네임의 게시글 전체 뽑는거 -->
+	<select id="getByTogetherList" resultType="java.util.HashMap"
+		parameterType="java.lang.String">
+		select * from togetherboard where nick = #{nick}
+	</select>
+
+	<!-- 페이징에 들어갈 만큼 게시글 뽑기 -->
+	<select id="getSomeFind" resultType="java.util.HashMap"
+		parameterType="java.util.HashMap">
+		select * from (select rownum r, o.* from (select * from
+		togetherboard where day>sysdate order by no desc) o ) where r between #{s} and #{e} 
+	</select>
+
+	<!-- 페이지 게시물 갯수에 따라 -->
+	<select id="totalCount" resultType="java.lang.Integer">
+		select count(*) from togetherboard where day>sysdate
+	</select>
+	
+	<select id="selectCount" resultType="java.lang.Integer" parameterType="java.lang.String">
+		select count(*) from togetherboard where area=#{area}
+	</select>
+	
+	<!-- 게시물 삭제 -->
+	<delete id="deletelist" parameterType="java.util.HashMap">
+		delete from togetherboard where no=#{no}	
+	</delete>
+
+</mapper>
+

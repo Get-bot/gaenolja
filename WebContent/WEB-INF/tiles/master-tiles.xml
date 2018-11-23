@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+	<definition name="master" template="/WEB-INF/tiles/master-template.jsp">
+		<put-attribute name="head" value="/WEB-INF/views/master/head.jsp"/>
+		<put-attribute name="nav" value="/WEB-INF/views/master/nav.jsp"/>
+		<put-attribute name="top" expression="${requestScope.top}"/>
+		<put-attribute name="main" expression="${requestScope.main}"/>	
+	</definition>		
+	
+</tiles-definitions>

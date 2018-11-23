@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+	<definition name="dogTraining.training" template="/WEB-INF/tiles/admin-template.jsp">
+		<put-attribute name="head" value="/WEB-INF/views/default/head.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/views/default/menu.jsp"/>
+		<put-attribute name="right" value="/WEB-INF/views/default/right.jsp"/>
+		<put-attribute name="center" value="/WEB-INF/views/dogTraining/training.jsp"/>
+	</definition>	
+
+</tiles-definitions>

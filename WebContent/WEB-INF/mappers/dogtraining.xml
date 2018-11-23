@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dogtraining">
+	<!-- 리스트 뽑기 -->
+   <select id="getAll" resultType="java.util.HashMap">
+      select * from dogtraining order
+      by no desc
+   </select>
+
+   <!-- 조회 -->
+   <select id="getlistByNo" resultType="java.util.HashMap">
+      select*from dogtraining
+      where no=#{no}
+   </select>
+
+   <!-- 글쓰고 저장 -->
+   <insert id="addlist" parameterType="java.util.HashMap">
+      insert into dogtraining
+      values(dogtraining_SEQ.nextval,#{title},#{content},#{upload},#{dtid},#{day},0)
+   </insert>
+
+   <!-- look up -->
+   <update id="updatelookup" parameterType="java.lang.Integer">
+      update dogtraining set
+      lookup = lookup+1 where no=#{no}
+   </update>
+   
+   <!-- 페이징에 들어갈 만큼 게시글 뽑기 -->
+   <select id="getSomeFind" resultType="java.util.HashMap"
+      parameterType="java.util.HashMap">
+      select * from (select rownum r, o.* from (select * from dogtraining order by no desc) o ) where r between #{s} and #{e}
+   </select>
+   
+   <!-- 페이지 게시물 갯수에 따라  -->
+   <select id="totalCount" resultType="java.lang.Integer">
+      select count(*) from dogtraining
+   </select>
+   
+   <!-- 게시물 삭제 -->
+   <delete id="deletelist" parameterType="java.util.HashMap">
+      delete from dogtraining where no=#{no}   
+   </delete>     
+   
+   <!-- 특정 아이디의 게시글 전체 뽑는거 -->
+   <select id="getByDogTrainingList" resultType="java.util.HashMap" parameterType="java.lang.String">
+      select * from dogtraining where dtid = #{id} order by day
+   </select>
+	
+	
+	
+	
+</mapper>

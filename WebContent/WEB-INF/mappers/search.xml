@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="search">
+	
+	<select id="resultForSearchFromDogList" resultType="java.util.HashMap" parameterType="java.util.List">
+		select * from dogList where name like <foreach collection="list" item="searchKey" separator=" and name like">#{searchKey}</foreach>
+		or engname like <foreach collection="list" item="searchKey" separator=" and engname like">#{searchKey}</foreach>
+		or info like <foreach collection="list" item="searchKey" separator=" and info like">#{searchKey}</foreach>
+		or type like <foreach collection="list" item="searchKey" separator=" and type like">#{searchKey}</foreach>		
+	</select>		
+
+	
+	<select id="resultForSearchFromFind" resultType="java.util.HashMap" parameterType="java.util.List">
+		select * from find where title like <foreach collection="list" item="searchKey" separator=" and title like">#{searchKey}</foreach>
+		or dogname like <foreach collection="list" item="searchKey" separator=" and dogname like">#{searchKey}</foreach>
+		or phone like <foreach collection="list" item="searchKey" separator=" and phone like">#{searchKey}</foreach>
+		or fcontent like <foreach collection="list" item="searchKey" separator=" and fcontent like">#{searchKey}</foreach>
+		or scontent like <foreach collection="list" item="searchKey" separator=" and scontent like">#{searchKey}</foreach>
+		or id like <foreach collection="list" item="searchKey" separator=" and id like">#{searchKey}</foreach>
+		or nick like <foreach collection="list" item="searchKey" separator=" and nick like">#{searchKey}</foreach> 
+	</select>
+	
+	<select id="resultForSearchFromParcel" resultType="java.util.HashMap" parameterType="java.util.List">
+		select * from parcel where title like <foreach collection="list" item="searchKey" separator=" and title like">#{searchKey}</foreach>
+		or choice like <foreach collection="list" item="searchKey" separator=" and choice like">#{searchKey}</foreach>
+		or phone like <foreach collection="list" item="searchKey" separator=" and phone like">#{searchKey}</foreach>
+		or area like <foreach collection="list" item="searchKey" separator=" and area like">#{searchKey}</foreach>
+		or breeds like <foreach collection="list" item="searchKey" separator=" and breeds like">#{searchKey}</foreach>
+		or gender like <foreach collection="list" item="searchKey" separator=" and gender like">#{searchKey}</foreach>
+		or inoculation like <foreach collection="list" item="searchKey" separator=" and inoculation like">#{searchKey}</foreach>
+		or age like <foreach collection="list" item="searchKey" separator=" and age like">#{searchKey}</foreach>
+		or content like <foreach collection="list" item="searchKey" separator=" and content like">#{searchKey}</foreach>
+		or writer like <foreach collection="list" item="searchKey" separator=" and writer like">#{searchKey}</foreach>
+	</select>
+	
+	<select id="resultForSearchFromTogether" resultType="java.util.HashMap" parameterType="java.util.List">
+		select * from togetherboard where title like <foreach collection="list" item="searchKey" separator=" and title like">#{searchKey}</foreach>
+		or content like <foreach collection="list" item="searchKey" separator=" and content like">#{searchKey}</foreach>
+		or day like <foreach collection="list" item="searchKey" separator=" and day like">#{searchKey}</foreach>
+		or area like <foreach collection="list" item="searchKey" separator=" and area like">#{searchKey}</foreach>
+		or address like <foreach collection="list" item="searchKey" separator=" and address like">#{searchKey}</foreach>
+		or nick like <foreach collection="list" item="searchKey" separator=" and nick like">#{searchKey}</foreach>	
+	</select>	
+	
+	<select id="resultForSearchFromDogTalk" resultType="java.util.HashMap" parameterType="java.util.List">
+		select * from dogTalk where talker like <foreach collection="list" item="searchKey" separator=" and talker like">#{searchKey}</foreach>
+		or content like <foreach collection="list" item="searchKey" separator=" and content like">#{searchKey}</foreach>
+		or address like <foreach collection="list" item="searchKey" separator=" and address like">#{searchKey}</foreach>
+		or writedate like <foreach collection="list" item="searchKey" separator=" and writedate like">#{searchKey}</foreach>
+	</select>
+	
+	<select id="resultForSearchFromNboard" resultType="java.util.HashMap" parameterType="java.util.List">
+		select * from member_board where BOARD_ID like <foreach collection="list" item="searchKey" separator=" and BOARD_ID like">#{searchKey}</foreach>
+		or BOARD_SUBJECT like <foreach collection="list" item="searchKey" separator=" and BOARD_SUBJECT like">#{searchKey}</foreach>
+		or BOARD_CONTENT like <foreach collection="list" item="searchKey" separator=" and BOARD_CONTENT like">#{searchKey}</foreach>	
+	</select>
+	
+	<!-- 밑에 작업중  -->
+	
+	<select id="resultForSearchFromDogTraining" resultType="java.util.HashMap" parameterType="java.util.List">
+		select * from dogtraining where title like <foreach collection="list" item="searchKey" separator=" and title like">#{searchKey}</foreach>
+		or content like <foreach collection="list" item="searchKey" separator=" and content like">#{searchKey}</foreach>
+		or dtid like <foreach collection="list" item="searchKey" separator=" and dtid like">#{searchKey}</foreach>	
+		or day like <foreach collection="list" item="searchKey" separator=" and day like">#{searchKey}</foreach>	
+	</select>
+	
+	<select id="resultForSearchFromDogHospital" resultType="java.util.HashMap" parameterType="java.util.List">
+		select * from hospital where address like <foreach collection="list" item="searchKey" separator=" and address like">#{searchKey}</foreach>
+		or hospitalname like <foreach collection="list" item="searchKey" separator=" and hospitalname like">#{searchKey}</foreach>
+		or gu like <foreach collection="list" item="searchKey" separator=" and gu like">#{searchKey}</foreach>				
+	</select>
+	
+	<select id="resultForSearchFromHelp" resultType="java.util.HashMap" parameterType="java.util.List">
+		select * from help where title like <foreach collection="list" item="searchKey" separator=" and title like">#{searchKey}</foreach>
+		or nick like <foreach collection="list" item="searchKey" separator=" and nick like">#{searchKey}</foreach>
+		or regdate like <foreach collection="list" item="searchKey" separator=" and regdate like">#{searchKey}</foreach>		
+		or content like <foreach collection="list" item="searchKey" separator=" and content like">#{searchKey}</foreach>				
+	</select>
+	
+</mapper>

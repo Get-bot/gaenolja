@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="recomments">
+<!-- 리댓글 저장하는거 -->
+	<insert id="addByReComments" parameterType="java.util.HashMap">
+		insert into recomments values(#{retalker}, #{recomments}, #{code}, #{nick})
+	</insert>
+
+<!-- 특정 댓글의 리댓글 내용 뽑는거 -->
+	<select id="getAllByReComments" resultType="java.util.HashMap" parameterType="java.lang.String">
+		select * from recomments where code=#{code}
+	</select>
+	
+</mapper>

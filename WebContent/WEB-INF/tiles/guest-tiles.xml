@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>	
+	<definition name="parcel.index" template="/WEB-INF/tiles/guest-template.jsp">
+		<put-attribute name="head" value="/WEB-INF/views/default/head.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/views/default/menu.jsp"/>
+		<put-attribute name="center" value="/WEB-INF/views/parcel/index.jsp"/>
+		<put-attribute name="right" value="/WEB-INF/views/default/right.jsp"/>
+	</definition>	
+	<definition name="parcel.new" template="/WEB-INF/tiles/guest-template.jsp">
+		<put-attribute name="head" value="/WEB-INF/views/default/head.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/views/default/menu.jsp"/>
+		<put-attribute name="center" value="/WEB-INF/views/parcel/new.jsp"/>
+		<put-attribute name="right" value="/WEB-INF/views/default/right.jsp"/>
+	</definition>	
+	<definition name="parcel.result" template="/WEB-INF/tiles/guest-template.jsp">
+		<put-attribute name="head" value="/WEB-INF/views/default/head.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/views/default/menu.jsp"/>
+		<put-attribute name="center" value="/WEB-INF/views/parcel/result.jsp"/>
+		<put-attribute name="right" value="/WEB-INF/views/default/right.jsp"/>
+	</definition>	
+	<definition name="parcel.detail" template="/WEB-INF/tiles/guest-template.jsp">
+		<put-attribute name="head" value="/WEB-INF/views/default/head.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/views/default/menu.jsp"/>
+		<put-attribute name="center" value="/WEB-INF/views/parcel/detail.jsp"/>
+		<put-attribute name="right" value="/WEB-INF/views/default/right.jsp"/>
+	</definition>	
+</tiles-definitions>

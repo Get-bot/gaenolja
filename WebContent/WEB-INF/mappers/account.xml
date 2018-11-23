@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="gaenoljaaccount">
+
+	<insert id="addAccount" parameterType="java.util.HashMap">
+		insert into gaenoljaaccount values(#{id}, #{pw}, #{name}, #{nickname}, 
+				#{address}, #{dogProfile}, #{dogName}, #{dogType}, #{dogGender}, #{usercomment})
+	</insert>
+
+	<select id="getAllaccount" resultType="java.util.HashMap" >
+		select * from gaenoljaaccount
+	</select>	
+
+	<select id="getOneById" resultType="java.util.HashMap" parameterType="java.lang.String">
+		select * from gaenoljaaccount where id=#{id}
+	</select>
+	
+	<select id="getPwById" resultType ="java.lang.String" parameterType="java.lang.String">
+		select pw from gaenoljaaccount where id=#{id}
+	</select>
+	
+	<select id="getUserInfo" resultType="java.util.HashMap" parameterType="java.lang.String" >
+		select ID,NAME,NICKNAME,ADDRESS,DOGNAME,DOGPROFILE,DOGTYPE,DOGGENDER,USERCOMMENT from gaenoljaaccount where id=#{id}
+	</select>
+	
+	<select id="checkId" resultType="java.lang.String" parameterType="java.lang.String">
+		select ID from gaenoljaaccount where id=#{id}
+	</select>
+	
+	<select id="findId" resultType="java.lang.String" parameterType="java.util.HashMap">
+		select ID from gaenoljaaccount where name=#{name} and dogName=#{dogName}
+	</select>
+	
+	
+	<select id="checkNick" resultType="java.lang.String" parameterType="java.lang.String">
+		select NICKNAME from gaenoljaaccount where nickname=#{nickname}
+	</select>	
+	
+	<select id="getByPassWord" resultType="java.lang.String" parameterType="java.lang.String">
+		select pw from gaenoljaaccount where id = #{id}
+	</select>
+	
+	<update id="updatePassWord" parameterType="java.util.HashMap">
+		update gaenoljaaccount set pw = #{pass} where id = #{id}
+	</update>
+	
+	<update id="updateUserInfo" parameterType="java.util.HashMap">
+		update gaenoljaaccount set NAME = #{name}, NICKNAME = #{nickname}, ADDRESS = #{address}, DOGNAME = #{dogName}, DOGPROFILE = #{dogProfile}, DOGTYPE = #{dogType}, DOGGENDER = #{dogGender}, USERCOMMENT = #{usercomment} where id = #{id}
+	</update>
+
+	<!-- index 페이지에서 접속자 클릭시 회원 정보 출력용 -->
+	<select id="getInfomodalByNick" resultType="java.util.HashMap" parameterType="java.lang.String">
+		select * from gaenoljaaccount where nickname=#{nick}
+	</select>
+	
+	<select id="getDogProfileByNickname" resultType="java.lang.String" parameterType="java.lang.String">
+		select dogprofile from gaenoljaaccount where nickname=#{nick}	
+	</select>
+	
+	<select id="getDogProfileById" resultType="java.lang.String" parameterType="java.lang.String">
+		select dogprofile from gaenoljaaccount where id=#{id}	
+	</select>
+</mapper>
+

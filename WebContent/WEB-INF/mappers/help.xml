@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="help">
+   
+   <!-- 게시물에 내용 다 넣기  -->
+   <insert id = "addAllHelp" parameterType="java.util.HashMap">
+      insert into help values(help_seq.nextval, #{title}, #{nick}, to_date(#{regdate},'YYYY-MM-DD'), 0, #{content}, #{inputfile1, jdbcType=VARCHAR}, #{inputfile2 , jdbcType=VARCHAR})
+   </insert>
+ 
+   <!-- 게시물에서 내용 다 빼오기 -->
+   <select id = "getAllHelp" resultType="java.util.HashMap">
+      select * from help
+   </select>
+
+   <!-- 페이징처리하면서 들어가는 만큼 빼오기--> 
+   <select id = "getSomeHelp" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+      select * from(select rownum r, o.* from (select * from help order by no desc) o ) where r between #{s} and #{e}
+   </select>
+   
+   <!-- 페이지 게시물에 따라 -->
+   <select id="totalCount" resultType="java.lang.Integer">
+      select count(*) from help
+   </select>   
+   <!-- no로 게시글  빼오기-->
+   <select id = "getOneByNo" resultType="java.util.HashMap" parameterType="java.lang.Integer">
+      select * from help where no=#{no}
+   </select>
+   
+   <!-- 조회수  -->
+   <update id="updatelook" parameterType="java.lang.Integer">
+      update help set look = look+1 where no=#{no}
+   </update>
+   
+   <!-- 특정 아이디의 게시글 전체 뽑는거 -->
+   <select id="getByHelpList" resultType="java.util.HashMap" parameterType="java.lang.String">
+      select * from help where nick = #{nick} order by regdate
+   </select>
+   
+</mapper>

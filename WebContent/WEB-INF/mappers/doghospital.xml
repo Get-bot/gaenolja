@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="hospital">
+<!-- 특정 지역구 병원 전체 뽑기 -->
+	<select id="getDogHospitalByGu" resultType="java.util.HashMap" parameterType="java.lang.String">
+		select * from HOSPITAL where gu = #{gu}
+	</select>
+	
+<!-- 전체 좌표뽑기 -->
+	<select id="getByCoord" resultType="java.util.HashMap" >
+		select lat, lng from HOSPITAL
+	</select>
+	
+<!-- 지역구 좌표뽑기 -->
+	<select id="getByGuCoord" resultType="java.util.HashMap" parameterType="java.lang.String">
+		select lat, lng from HOSPITAL where gu = #{gu}
+	</select>
+
+<!--  병원 전체 뽑기 -->
+	<select id="getAllByDogHospital" resultType="java.util.HashMap" >
+		select * from HOSPITAL
+	</select>
+	
+<!-- 페이징에 들어갈 만큼 게시글 뽑기 -->
+	<select id="getSomeHospital" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+		select * from (select rownum r, o.* from (select * from hospital order by no desc) o ) where r between #{s} and #{e}
+	</select>	
+	
+<!-- 페이지 게시물 갯수에 따라  -->
+	<select id="getTotalCountByHospital" resultType="java.lang.Integer">
+		select count(*) from hospital
+	</select>	
+	
+
+</mapper>

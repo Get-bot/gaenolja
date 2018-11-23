@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="DCOMMENT">
+   <!-- 해당글 comment 출력 -->
+   <select id="getCommentByNo" resultType="java.util.HashMap">
+      select * from DCOMMENT where num=#{num} order by cdate desc
+   </select>
+
+   <!-- 글쓰고 저장 -->
+   <insert id="addcomment" parameterType="java.util.HashMap">
+      insert into DCOMMENT values(#{num},#{id},#{cdate},#{content})
+   </insert>
+   
+   <!-- 특정 아이디의 댓글 전체 뽑는거 -->
+   <select id="getByDogTrainingCmt" resultType="java.util.HashMap" parameterType="java.lang.String">
+      select * from dogtraining join (select content as msg, dcomment.* from dcomment where id = #{id} order by cdate desc)c on dogtraining.no = c.num
+   </select>
+
+</mapper>

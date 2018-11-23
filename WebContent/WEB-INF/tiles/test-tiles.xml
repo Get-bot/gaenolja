@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+
+	<definition name="test.main.index" template="/WEB-INF/tiles/test-template.jsp">
+		<put-attribute name="nav" value="/WEB-INF/views/testfiles/nav.jsp"/>
+		<put-attribute name="top" expression="${requestScope.top}"/>			
+		<put-attribute name="bottom" value="/WEB-INF/views/testfiles/bottom.jsp"/>
+		<put-attribute name="main" expression="${requestScope.main}"/>	
+			
+	</definition>	
+	
+	<definition name="test.login" template="/WEB-INF/tiles/test-noTop-template.jsp">
+		<put-attribute name="nav" value="/WEB-INF/views/testfiles/nav.jsp"/>				
+		<put-attribute name="bottom" value="/WEB-INF/views/testfiles/bottom.jsp"/>
+		<put-attribute name="main" expression="${requestScope.main}"/>				
+	</definition>	
+	
+</tiles-definitions>

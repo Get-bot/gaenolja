@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dogList">
+
+	<insert id="addDog" parameterType="java.util.HashMap">
+		insert into dogList values(dogList_seq.nextval, #{name}, #{engname}, #{info}, #{type}, #{img})	
+	</insert>
+
+<!-- 게시글 전부 뽑는거 -->
+	<select id="getDogList" resultType="java.util.HashMap" >
+		select * from dogList order by name asc
+	</select>
+	
+<!-- 종류별 데이터 뽑는거 -->
+	<select id="getDogListByType" resultType="java.util.HashMap" parameterType="java.lang.Integer">
+		select * from dogList where type=#{type}  order by name asc
+	</select>
+	
+	<select id="resultForSearchFromDogList" resultType="java.util.HashMap" parameterType="java.lang.String">
+		select * from dogList where name like #{search} or engname like #{search} or  info like #{search} or type like #{search} or img like #{search} 
+	</select>
+	
+	<delete id="deleteDogList" parameterType="java.util.HashMap">
+		delete from dogList  where name=#{name}	
+	</delete>
+</mapper>
+

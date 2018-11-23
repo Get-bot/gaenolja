@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<!-- 강아지 찾기 -->
+		<definition name="main.find.list" template="/WEB-INF/tiles/guest-find-template.jsp">
+		<put-attribute name="head" value="/WEB-INF/views/default/head.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/views/default/menu.jsp"/>
+		<put-attribute name="right" value="/WEB-INF/views/default/right.jsp"/>
+		<put-attribute name="center" value="/WEB-INF/views/find/list.jsp"/>
+	</definition>	
+	
+	<definition name="main.find.write" template="/WEB-INF/tiles/guest-find-template.jsp">
+		<put-attribute name="head" value="/WEB-INF/views/default/head.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/views/default/menu.jsp"/>
+		<put-attribute name="right" value="/WEB-INF/views/default/right.jsp"/>
+		<put-attribute name="center" value="/WEB-INF/views/find/write.jsp"/>
+	</definition>
+	
+	<definition name="main.find.detail" template="/WEB-INF/tiles/guest-find-template.jsp">
+		<put-attribute name="head" value="/WEB-INF/views/default/head.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/views/default/menu.jsp"/>
+		<put-attribute name="right" value="/WEB-INF/views/default/right.jsp"/>
+		<put-attribute name="center" value="/WEB-INF/views/find/detail.jsp"/>
+	</definition>
+	
+	<definition name="main.find.result" template="/WEB-INF/tiles/guest-find-template.jsp">
+		<put-attribute name="head" value="/WEB-INF/views/default/head.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/views/default/menu.jsp"/>
+		<put-attribute name="right" value="/WEB-INF/views/default/right.jsp"/>
+		<put-attribute name="center" value="/WEB-INF/views/find/result.jsp"/>
+	</definition>
+	
+</tiles-definitions>

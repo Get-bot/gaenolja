@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<!-- 마이페이지 메인 타일 -->
+	<definition name="mypage.index" template="/WEB-INF/tiles/guest-mypage-template.jsp">
+		<put-attribute name="head" value="/WEB-INF/views/default/head.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/views/mypage/menu.jsp"/>
+		<put-attribute name="center" value="/WEB-INF/views/mypage/index.jsp"/>
+	</definition>	
+	<!-- 마이페이지 내 게시글 타일 -->
+	<definition name="mypage.myboard" template="/WEB-INF/tiles/guest-mypage-template.jsp">
+		<put-attribute name="head" value="/WEB-INF/views/default/head.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/views/mypage/menu.jsp"/>
+		<put-attribute name="center" value="/WEB-INF/views/mypage/myboard.jsp"/>
+	</definition>	
+	<!-- 마이페이지 내 댓글 타일 -->
+	<definition name="mypage.mycomment" template="/WEB-INF/tiles/guest-mypage-template.jsp">
+		<put-attribute name="head" value="/WEB-INF/views/default/head.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/views/mypage/menu.jsp"/>
+		<put-attribute name="center" value="/WEB-INF/views/mypage/mycomment.jsp"/>
+	</definition>	
+	<!-- 마이페이지 중간 인증 체크 타일 -->
+	<definition name="mypage.check" template="/WEB-INF/tiles/guest-mypage-template.jsp">
+		<put-attribute name="head" value="/WEB-INF/views/default/head.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/views/mypage/menu.jsp"/>
+		<put-attribute name="center" value="/WEB-INF/views/mypage/check.jsp"/>
+	</definition>	
+	<!-- 마이페이지 비밀번호 수정 페이지 타일 -->
+	<definition name="mypage.modify_pw" template="/WEB-INF/tiles/guest-mypage-template.jsp">
+		<put-attribute name="head" value="/WEB-INF/views/default/head.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/views/mypage/menu.jsp"/>
+		<put-attribute name="center" value="/WEB-INF/views/mypage/modify_pw.jsp"/>
+	</definition>	
+	<!-- 마이페이지 회원정보 수정 페이지 타일 -->
+	<definition name="mypage.modify_info" template="/WEB-INF/tiles/guest-mypage-template.jsp">
+		<put-attribute name="head" value="/WEB-INF/views/default/head.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/views/mypage/menu.jsp"/>
+		<put-attribute name="center" value="/WEB-INF/views/mypage/modify_info.jsp"/>
+	</definition>	
+	
+	
+	
+</tiles-definitions>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="parcel">
+<!-- 게시글 저장하는거 -->
+	<insert id="addByParcel" parameterType="java.util.HashMap">
+		insert into parcel values(parcel_seq.nextval, #{title}, #{choice}, #{phone}, #{area}, #{lat}, #{longi}, #{breeds}, #{gender}, #{sort}, #{age}, #{inoculation}, 
+									#{content}, #{writer}, sysdate, #{mainimage}, #{file1}, #{file2}, #{character})
+	</insert>
+
+<!-- 게시글 전부 뽑는거 -->
+	<select id="getAllByParcel" resultType="java.util.HashMap" >
+		select * from parcel order by regdate desc
+	</select>
+	
+<!-- 특정 게시글 데이터 뽑는거 -->
+	<select id="getByOneParcel" resultType="java.util.HashMap" parameterType="java.lang.Integer">
+		select * from parcel where no=#{no}
+	</select>
+	
+<!-- 특정 아이디의 게시글 전체 뽑는거 -->
+	<select id="getByParcelList" resultType="java.util.HashMap" parameterType="java.lang.String">
+		select * from parcel where writer = #{writer}
+	</select>
+
+	<select id="resultForSearchFromParcel" resultType="java.util.HashMap" parameterType="java.lang.String">
+		select * from parcel where title like #{search} or breeds like #{search} or gender like #{search} or sort like #{search} or age like #{search} or inoculation like #{search} or 
+		content like #{search} or writer like #{search} or mainimage like #{search} or file1 like #{search} or file2 like #{search} or character like #{search}
+	</select>
+
+	<update id="updateDetail" parameterType="java.util.HashMap">
+		update parcel set title = #{title}, choice = #{choice}, phone = #{phone}, area = #{area}, lat = #{lat}, longi = #{longi}, breeds = #{breeds}, gender = #{gender}, sort = #{sort}, age = #{age}, inoculation = #{inoculation}, content = #{content}, writer = #{writer}, character = #{character} where no = #{no}
+	</update>
+	
+<!-- 페이징에 들어갈 만큼 게시글 뽑기 -->
+	<select id="getSomeParcel" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+		select * from (select rownum r, o.* from (select * from parcel order by no desc) o ) where r between #{s} and #{e}
+	</select>
+	
+<!-- 페이지 게시물 갯수에 따라  -->
+	<select id="getTotalCountByParcel" resultType="java.lang.Integer">
+		select count(*) from parcel
+	</select>
+	
+
+</mapper>

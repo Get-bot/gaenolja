@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="helpcomment">
+
+   <!-- 댓글 넣기 -->
+   <insert id="addHelpComment" parameterType="java.util.HashMap">
+      insert into helpcomment values(#{hno}, #{reply}, #{regdate}, #{nick})   
+   </insert>
+   
+   <!-- hno로 댓글 뽑기 -->
+   <select id="getCommentByHno" parameterType="java.lang.Integer" resultType="java.util.HashMap">
+      select * from helpcomment where hno=#{no} order by regdate desc
+   </select> 
+
+   <!-- 뽑기 -->
+   <select id="getAllComment" resultType="java.util.HashMap">
+      select * from helpcomment
+   </select>
+   
+   <!-- 특정 아이디의 댓글 전체 뽑는거 -->
+   <select id="getByHelpCmt" resultType="java.util.HashMap" parameterType="java.lang.String">
+      select * from help join (select * from helpcomment where nick = #{nick} order by regdate desc)c on help.no = c.hno
+   </select>
+
+   
+</mapper> 

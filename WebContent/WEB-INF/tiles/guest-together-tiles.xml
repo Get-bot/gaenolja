@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN" "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<!-- 같이가요 메인  -->	
+	<definition name="main.togetherboard" template="/WEB-INF/tiles/guest-together-template.jsp">
+		<put-attribute name="head" value="/WEB-INF/views/default/head.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/views/default/menu.jsp"/>
+		<put-attribute name="center" value="/WEB-INF/views/together.board/mainboard.jsp"/>
+		<put-attribute name="right" value="/WEB-INF/views/default/right.jsp"/>
+	</definition>
+	<!-- area 선택시 이동  -->
+	<definition name="main.selectboard" template="/WEB-INF/tiles/guest-together-template.jsp">
+		<put-attribute name="head" value="/WEB-INF/views/default/head.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/views/default/menu.jsp"/>
+		<put-attribute name="center" value="/WEB-INF/views/together.board/selectboard.jsp"/>
+		<put-attribute name="right" value="/WEB-INF/views/default/right.jsp"/>
+	</definition>
+	<!-- 글쓰기 -->
+	<definition name="main.newboard" template="/WEB-INF/tiles/guest-together-template.jsp">
+		<put-attribute name="head" value="/WEB-INF/views/default/head.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/views/default/menu.jsp"/>
+		<put-attribute name="center" value="/WEB-INF/views/together.board/new.jsp"/>
+		<put-attribute name="right" value="/WEB-INF/views/default/right.jsp"/>
+	</definition>
+	<!-- 글 자세히 보기-->
+	<definition name="main.detail" template="/WEB-INF/tiles/guest-together-template.jsp">
+		<put-attribute name="head" value="/WEB-INF/views/default/head.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/views/default/menu.jsp"/>
+		<put-attribute name="center" value="/WEB-INF/views/together.board/detail.jsp"/>
+		<put-attribute name="right" value="/WEB-INF/views/default/right.jsp"/>
+	</definition>	
+	
+</tiles-definitions>

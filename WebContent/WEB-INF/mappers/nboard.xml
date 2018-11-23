@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+ <!DOCTYPE mapper  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="member_board">
+
+	<!-- 공지사항 전부 뽑는거 -->
+	<select id="getAllNboard" resultType="java.util.HashMap">
+		select * from member_board order by board_num desc
+	</select>
+
+	<!-- 조회 -->
+	<select id="nboardread" resultType="java.util.HashMap" >
+	   select*from member_board where BOARD_NUM=#{BOARD_NUM}
+	</select>
+
+	<!-- 저장 -->
+	<insert id="addlistBoard" parameterType="java.util.HashMap">
+		insert into member_board values(member_board_seq.nextval,#{BOARD_ID},#{BOARD_SUBJECT},#{BOARD_CONTENT},0,sysdate,0)
+	</insert>
+	
+	<!-- look up -->
+	<update id ="updatelookup" parameterType="java.lang.Integer">
+	  update member_board set BOARD_LOOKUP = BOARD_LOOKUP+1 where BOARD_NUM=#{no}
+	</update>
+
+	<!-- 삭제 -->
+	<delete id="nboarddelete" parameterType="java.lang.Integer" >
+		delete from member_board where BOARD_NUM = #{no}
+	</delete>
+	
+	<!-- 페이징 -->
+	<select id ="getfind"  resultType="java.util.HashMap" parameterType="java.util.HashMap">
+	    select*from (select rownum r,o.* from (select*from member_board order by BOARD_NUM desc) o) where r between #{s} and #{e}
+	</select>
+	
+	<!-- 페이징 갯수 -->
+	<select id="totalCount" resultType="java.lang.Integer">
+	  select count(*) from member_board
+	</select>
+
+</mapper>
+
+

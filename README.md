@@ -9,8 +9,9 @@
 + 개발 담당업무 : 분양하시개(게시판), 마이페이지, 회원정보수정, 비밀번호수정, 개병원(개아파 카테고리 하위 게시판)
 
 개발환경
-+ 언어 : JAVA
++ 언어 : JAVA, JavaScript, AJAX
 + DB : Oracle, MongoDB
-+ FRAMEWORK : Spring
++ FRAMEWORK : Spring, MyBatis
 + 사용오픈API : 카카오지도API, 다음 우편번호API, Open Weather Map API
++ 사용자료 : 지방행정인허가데이터(LOCALDATA) 동물병원 
 + 기타 : HTML, CSS, bootstrap

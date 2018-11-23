@@ -23,7 +23,8 @@
 첨부
   + 사이트 URL : http://13.125.207.28
   + Github URL : https://github.com/rogemaster/gaenolja
-
+  
+***
 구현서비스
 ----------
 
@@ -35,7 +36,7 @@
    + 주소API를 통해 선택된 주소를 지도API를 통해서 위도,경도를 출력해 DB 저장 및 추후 게시글 상세 화면에서 위치 표기 진행.
    + 상세 화면 댓글의 경우 Ajax 처리를 통해 DB 저장 하였고, 댓글DB와 회원정보DB를 join 하여 댓글 리스트를 구현.
    
- 
+ ***
   2. 개아파 -> 개병원
   
 ![default](https://user-images.githubusercontent.com/40861712/48951002-625e4e00-ef80-11e8-8b87-c1db76d7344e.png)
@@ -43,13 +44,14 @@
    + 지방행정인허가데이터(LOCALDATA)에서 서울 동물병원 자료를 받아 지도API를 통해 위도, 경도 값을 DB에 사전 저장.
    + 사전 저장된 위도, 경도 값을 지도API의 클러스터로 지도 구현.
    
-  
+ *** 
   3. 마이페이지(회원정보수정, 비밀번호수정)
  ![default](https://user-images.githubusercontent.com/40861712/48951431-e7963280-ef81-11e8-8a7f-7f0996396c49.png)
  
    + 회원정보수정에서 프로필 사진을 변경할 경우 Script를 통해 이미지 업로드와 동시에 화면 출력 구현.
    + 비밀번호의 경우 3가지의 값을 전부 입력 하지 않으면 수정 버튼이 비활성화 되도록 구현.
    
+ ***
   4. 마이페이지(게시글 및 댓글 모음)
  ![default](https://user-images.githubusercontent.com/40861712/48951773-27a9e500-ef83-11e8-9138-818069d48f46.png)
  

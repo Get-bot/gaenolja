@@ -8,7 +8,7 @@
 
 <!-- 특정 게시글 댓글 전부 뽑는거(오름차순) -->
 	<select id="getAllByComments" resultType="java.util.HashMap" parameterType="java.lang.Integer">
-		select * from comments where ino=#{ino} order by regday asc
+		select * from gaenoljaaccount join (select * from comments where ino=#{ino} order by regday asc)c on gaenoljaaccount.id = c.talker
 	</select>
 
 <!-- 아이디별 댓글 뽑기 -->

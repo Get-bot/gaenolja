@@ -126,51 +126,7 @@
 </form>
 
 <script>
-var checkId = function (id) {
-	var input =id.value;
-			
-	console.log("id function");
-	var url = "/gaenolja/validate.do";		
-	
-	var param = {
-			"mode"  : "id",
-			"input" : input			
-	};	
-	
-	$.get(url, param, function(rst) {	 			
-		if(rst==true){
-			$("#checkId").html("사용가능한 아이디 입니다.");
-			$("#checkId").css("color","blue");
-		}else{
-			$("#checkId").html("이미 사용중인 아이디 입니다.");
-			$("#checkId").css("color","red");
-			$("#id").val("");
-		}
-	
-	});
-};
-var checkNick = function (nick) {
-	var input =nick.value;
-	
-	var url = "/gaenolja/validate.do";		
-	
-	var param = {
-			"mode"  : "nick",
-			"input" : input			
-	};	
-	
-	$.get(url, param, function(rst) {	 			
-		if(rst==true){
-			$("#checkNick").html("사용가능한 닉네임 입니다.");
-			$("#checkNick").css("color","blue");
-		}else{
-			$("#checkNick").html("이미 사용중인 닉네임 입니다.");
-			$("#checkNick").css("color","red");
-			$("#nickname").val("");
-		}
-	
-	});
-};
+
 $("#dogProfile").on("change",function(){
 	var f = new FileReader();
 	f.onload= function(e){

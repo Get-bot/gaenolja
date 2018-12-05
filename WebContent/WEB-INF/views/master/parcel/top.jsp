@@ -9,7 +9,7 @@
 	 </div>
 	  <div class="container">
               <div class="topad-caption text-left">
-              	<h1 >입양하시개</h1>		
+              	<h1 >데려가시개</h1>		
 			<p>사지말고 입양하시개 (무료 분양)</p>         
               </div>
       </div>

@@ -44,27 +44,5 @@ public class CommentController {
 		}
 	}
 
-	// 특정 게시판 리댓글 저장
-	@PostMapping("/addrecomment.do")
-	public String addByReComments(@RequestParam Map param) {
-		try {
-			int r = parcelRepository.addByReComments(param);
-			System.out.println("리댓글 저장 결과값 = " + r);
-			return "parcel.detail"; 
-		}catch(Exception e) {
-			e.printStackTrace();
-			return "parcel.detail";
-		}
-	}
-	
-	// 특정 댓글의 댓글 전체 출력
-	@RequestMapping(path="/getrecomment.do", produces="application/json;charset=UTF-8")
-	@ResponseBody
-	public String getAllByReComments(@RequestParam Map param, ModelMap map) {
-		String code = (String)param.get("code");
-		List recomlist = parcelRepository.getAllByReComments(code);
-			map.put("recomlist", recomlist);
-			return gson.toJson(recomlist);
 
-	}
 }

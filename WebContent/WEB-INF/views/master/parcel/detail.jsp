@@ -3,10 +3,10 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<div style="width: 900px; margin: auto;">
+<div style="width: 1000px; margin: auto;">
 <!------------------------------------------------------- 분양 강아지 정보 보이는 뷰 시작 이미지 / 정보만 보임 -->
 <div style="float: left; margin-right: 20px;">
-		<img alt="이미지 안나오면 엑박" src="${pageContext.servletContext.contextPath }${one.MAINIMAGE }" style="width: 400px; height: 400px;">
+		<img alt="이미지 안나오면 엑박" src="${pageContext.servletContext.contextPath }${one.MAINIMAGE }" style="width: 500px; height: 500px;">
 </div>
 <div style="float: right; width: 480px;">
 	<table class="table">
@@ -39,6 +39,10 @@
 			<tr>
 				<th style="text-align: center;">접종</th>
 				<td style="text-align: center;">${one.INOCULATION }</td>
+			</tr>
+			<tr>
+				<th style="text-align: center;">연락처</th>
+				<td style="text-align: center;">${one.PHONE }</td>
 			</tr>
 			<tr>
 				<th style="text-align: center;">분양주소</th>
@@ -80,7 +84,7 @@
 <ul class="list-unstyled"> 
 	<c:forEach var="c" items="${comlist }" varStatus="vs">
 		<li class="media border-top-0" id="view-listcomment_${vs.count }" data-toggle="collapse" data-target="#collapseExample_${vs.count }" aria-expanded="false" aria-controls="collapseExample" >
-			<img class="rounded-circle" src="${pageContext.servletContext.contextPath }${userInfo.DOGPROFILE}" alt="image" style="width: 50px; height: 50px; margin-right: 20px;">
+			<img class="rounded-circle" src="${pageContext.servletContext.contextPath }${c.DOGPROFILE }" alt="image" style="width: 50px; height: 50px; margin-right: 20px;">
 			<div class="media-body">
 				<h5 class="mt-0 mb-1" style="font-size: 15px;">${c.NICK}<small>(${c.TALKER })</small></h5>
 				<div style="font-size: 13px;">${c.COMMENTS }</div>
@@ -150,17 +154,11 @@
 	$("#new_comment").on("change", function() {
 		var comment = $("#new_comment").val();
 		console.log(comment);
-		var html = "<li class=\"media border-top-0\" id=\"view-listcomment_${vs.count }\" data-toggle=\"collapse\" data-target=\"#collapseExample_${vs.count }\" aria-expanded=\"false\" aria-controls=\"collapseExample\ onclick=\"getReComment(this, '${c.SERIAL }')\">";
+		var html = "<li class=\"media border-top-0\" id=\"view-listcomment_${vs.count }\" data-toggle=\"collapse\" data-target=\"#collapseExample_${vs.count }\" aria-expanded=\"false\" aria-controls=\"collapseExample\">";
 			html += "<img class=\"rounded-circle\" src=\"${pageContext.servletContext.contextPath }${userInfo.DOGPROFILE}\" alt=\"프로필 이미지\" style=\"width: 50px; height: 50px; margin-right: 20px;\">";
 			html += "<div class=\"media-body\">";
 			html += "<h5 class=\"mt-0 mb-1\" style=\"font-size: 15px;\">${userInfo.NICKNAME }(${userInfo.ID })</h5>";
 			html += "<div style=\"font-size: 13px;\">" + comment + "</div>";
-			html += "</div></li>";
-			html += "<div class=\"media\" id=\"view_recomment\"></div>";
-			html += "<li class=\"collapse\" id=\"collapseExample_${vs.count }\">";
-			html += "<div class=\"input-group mb-3\">";
-			html += "<span class=\"input-group-text\" id=\"basic-addon1\">${userInfo.NICKNAME }(${userInfo.ID })</span>";
-			html += "<input type=\"text\" class=\"form-control\" aria-describedby=\"basic-addon1\">";
 			html += "</div></li>";
 			html += "<hr style=\"margin: 10px;\"/>";
 

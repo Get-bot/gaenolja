@@ -57,9 +57,6 @@
 		
 	</div>
 	
-		<button type="button" class="btn btn-secondary btn-lg" id="addbtn" >더 보 기</button>
-
-	
 	
 <script>
 	

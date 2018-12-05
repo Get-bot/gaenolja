@@ -49,7 +49,7 @@
 		</div>
 		<div class="col-md-6 mb-3">
 			<label for="lastName">분양자 핸드폰 번호</label>
-			<input type="text" class="form-control" id="phone" name="phone" onchange="checkPhone(this);" >
+			<input type="text" class="form-control" id="phone" name="phone" onchange="checkPhone(this);" placeholder="000-0000-0000 형식으로 입력해 주세요.">
 			<span class="msg"></span>
 		</div>
 		<div class="col-md-6 mb-3">

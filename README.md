@@ -73,7 +73,7 @@ DB 및 컨트롤 맵핑
    + 분양하시개 - 댓글
  ![parcel-comment](https://user-images.githubusercontent.com/40861712/50091373-8b57c300-024e-11e9-85fd-9089c0d34d25.png)
 
-   + 도와주시개
+   + 개병원
  ![hospital](https://user-images.githubusercontent.com/40861712/50091441-c6f28d00-024e-11e9-8a8e-774018c000cf.png)
 
 ### 컨트롤러 맵핑
@@ -81,7 +81,7 @@ DB 및 컨트롤 맵핑
    + 분양하시개
  ![controller-parcel](https://user-images.githubusercontent.com/40861712/50091541-028d5700-024f-11e9-97ec-24ed25dc2967.png)
 
-   + 도와주시개
+   + 개병
  ![controller-hospital](https://user-images.githubusercontent.com/40861712/50091570-13d66380-024f-11e9-8f18-b769ede26a8b.png)
 
    + 마이페이지 - 내 정보수정

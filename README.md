@@ -13,8 +13,8 @@
   + 개발 담당업무 : 분양하시개(게시판), 마이페이지, 회원정보수정, 비밀번호수정, 개병원(개아파 카테고리 하위 게시판)
 
  개발환경
-  + 언어 : JAVA, JavaScript, AJAX
-  + DB : Oracle, MongoDB
+  + 언어 : JAVA, JSP, JavaScript, AJAX
+  + DB : OracleDB, MongoDB
   + FRAMEWORK : Spring, MyBatis
   + 사용오픈API : 카카오지도API, 다음 우편번호API, Open Weather Map API
   + 사용자료 : 지방행정인허가데이터(LOCALDATA) 동물병원 엑셀자료
@@ -109,4 +109,3 @@ DB 및 컨트롤 맵핑
    그냥 항상 결과물만 봐왔고 사용해 왔던 제가 이제 그 결과물을 만들고 전파 할 수 있다는 점이 좋았습니다.
    아직은 많이 부족한 실력이지만 더욱 많이 배우고 공부하면서 스스로도 만족하고 주변에서도 만족하실 수 있는 개발자가 되겠습니다.
 
- 

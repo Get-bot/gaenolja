@@ -77,18 +77,30 @@
 <div>
 	<nav aria-label="Page navigation example">
 		<ul class="pagination justify-content-center">			
-			<c:forEach var="p" begin="1" end="${size }">
+			<c:if test="${paging.curRange ne 1 }">
+				<a href="javascript:void(0)" onclick="hospitalpaging(1)">[처음]</a>
+			</c:if>
+		
+			<c:if test="${paging.curRange ne 1 }">
+				<a href="javascript:void(0)" onclick="hospitalpaging(${paging.prevPage})">[이전]</a>
+			</c:if>
+			
+			<c:forEach var="pageNum" begin="${paging.startPage }" end="${paging.endPage }">
 				<c:choose>
-					<c:when test="${p==current}">
-						<li class="page-item active">
-    						<a class="page-link" href="${pageContext.servletContext.contextPath }/doghospital.do?p=${p}">${p }<span class="sr-only">(current)</span></a>
-    					</li>	
-    				</c:when>
-    				<c:otherwise>
-    					<a class="page-link" href="${pageContext.servletContext.contextPath }/doghospital.do?p=${p}">${p }</a>
-    				</c:otherwise>
-				</c:choose>					
-			</c:forEach>			
+					<c:when test="${pageNum eq paging.curPage }">
+						<span><a href="javascript:void(0)" onclick="hospitalpaging(${pageNum})">${pageNum }</a></span>
+					</c:when>
+					<c:otherwise>
+						<a href="javascript:void(0)" onclick="hospitalpaging(${pageNum})">${pageNum }</a>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+			<c:if test="${paging.curPage ne paging.pageCnt && paging.pageCnt > 0 }">
+				<a href="javascript:void(0)" onclick="hospitalpaging(${paging.nextPage})">[다음]</a>
+			</c:if>
+			<c:if test="${paging.curPage ne paging.pageCnt && paging.pageCnt > 0 }">
+				<a href="javascript:void(0)" onclick="hospitalpaging(${paging.pageCnt})">[끝]</a>
+			</c:if>
 		</ul>
 	</nav>
 </div>
@@ -122,5 +134,9 @@
     	clusterer.addMarkers(markers);
     });
     
+    
+    function hospitalpaging(target) {
+		location.href = "${pageContext.servletContext.contextPath }/doghospital.do?curPage=" + target;
+	}
 		
 </script>

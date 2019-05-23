@@ -60,7 +60,7 @@
 				</tr>
 			</thead>
 		<tbody>
-		<c:forEach var="dh" items="${dhlist }">
+		<c:forEach var="dh" items="${every }">
 			<tr>
 				<td style="text-align: center;" data="${dh.GU }"><small>${dh.GU }</small></td>
 				<td style="text-align: center;"><small>${dh.SORT }</small></td>
@@ -74,8 +74,39 @@
 	</table>
 </div>
 
+<div>
+	<nav aria-label="Page navigation example">
+		<ul class="pagination justify-content-center">			
+			<c:if test="${paging.curRange ne 1 }">
+				<a href="javascript:void(0)" onclick="guhospitalpaging(1)">[처음]</a>
+			</c:if>
+		
+			<c:if test="${paging.curRange ne 1 }">
+				<a href="javascript:void(0)" onclick="guhospitalpaging(${paging.prevPage})">[이전]</a>
+			</c:if>
+			
+			<c:forEach var="pageNum" begin="${paging.startPage }" end="${paging.endPage }">
+				<c:choose>
+					<c:when test="${pageNum eq paging.curPage }">
+						<span><a href="javascript:void(0)" onclick="guhospitalpaging(${pageNum})">${pageNum }</a></span>
+					</c:when>
+					<c:otherwise>
+						<a href="javascript:void(0)" onclick="guhospitalpaging(${pageNum})">${pageNum }</a>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+			<c:if test="${paging.curPage ne paging.pageCnt && paging.pageCnt > 0 }">
+				<a href="javascript:void(0)" onclick="guhospitalpaging(${paging.nextPage})">[다음]</a>
+			</c:if>
+			<c:if test="${paging.curPage ne paging.pageCnt && paging.pageCnt > 0 }">
+				<a href="javascript:void(0)" onclick="guhospitalpaging(${paging.pageCnt})">[끝]</a>
+			</c:if>
+		</ul>
+	</nav>
+</div>
+
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8732ddf8bab883cf85aa0180da9e413d&libraries=services,clusterer,drawing"></script>
-<script>	
+<script>
 	
 	var gu = $("td").attr("data");
 	
@@ -123,5 +154,9 @@
     	// 클러스터러에 마커들을 추가합니다
     	clusterer.addMarkers(markers);
     });
+    
+    function guhospitalpaging(target) {
+		location.href = "${pageContext.servletContext.contextPath }/getdh.do?gu=" + gu + "&curPage=" + target;
+	}
     
 </script>

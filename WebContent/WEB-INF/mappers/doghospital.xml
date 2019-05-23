@@ -21,15 +21,25 @@
 		select * from HOSPITAL
 	</select>
 	
-<!-- 페이징에 들어갈 만큼 게시글 뽑기 -->
+<!-- 전체 게시글 뽑기 -->
 	<select id="getSomeHospital" resultType="java.util.HashMap" parameterType="java.util.HashMap">
-		select * from (select rownum r, o.* from (select * from hospital order by no desc) o ) where r between #{s} and #{e}
+		select * from (select rownum r, o.* from (select * from hospital order by gu asc) o ) where r between #{s} and #{e}
 	</select>	
 	
-<!-- 페이지 게시물 갯수에 따라  -->
+<!-- 전체 페이지 게시물 카운트  -->
 	<select id="getTotalCountByHospital" resultType="java.lang.Integer">
 		select count(*) from hospital
 	</select>	
+	
+<!-- 지역구 페이지 게시물 카운트  -->
+	<select id="getTotalCountByGuHospital" resultType="java.lang.Integer" parameterType="java.lang.String">
+		select count(*) from hospital where gu = #{gu}
+	</select>	
+	
+<!-- 지역구 게시글 뽑기 -->
+	<select id="getSomeGuHospital" resultType="java.util.HashMap" parameterType="java.util.HashMap">
+		select * from (select rownum r, o.* from (select * from hospital where gu = #{gu} order by no desc) o ) where r between #{s} and #{e}
+	</select>
 	
 
 </mapper>

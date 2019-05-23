@@ -9,7 +9,7 @@
 	<table class="table table-hover ">
 		<thead class="thead-light" style="text-align:center">
 			<tr>
-				<th scope="col" style="width:5%">#</th>
+				<th scope="col" style="width:5%">NO</th>
 				<th scope="col" style="width:40%">제목</th>
 				<th scope="col" style="width:20%">작성자</th>
 				<th scope="col" style="width:15%">날짜</th>

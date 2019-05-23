@@ -22,62 +22,58 @@ public class DogHospitalController {
 	
 	@Autowired
 	Gson gson;
+	
 
 	@RequestMapping("/doghospital.do")
-	public ModelAndView dogHospitalHandle(ModelMap map, @RequestParam (required=false)String p) {
-		List<Map> list = dhr.getAllByDogHospital();
-			map.put("list", list);
-			
-		//---------------------------------------------------------------
-		int pp = (p == null) ? 1 : Integer.parseInt(p);
+	public ModelAndView dogHospitalHandle(ModelMap map, @RequestParam(defaultValue = "1") int curPage) {
+		
+		int listCnt = dhr.getTotalCountByHospital();
+
+		DogHospitalPageing paging = new DogHospitalPageing(listCnt, curPage);
 		
 		Map data = new HashMap();
-			data.put("s", 1 + (pp-1) * 20);
-			data.put("e", pp*20);
-		
-		map.put("current", pp);
+			data.put("s", paging.getStartIndex());
+			data.put("e", paging.getPageSize() * curPage);
+		System.out.println(data);
 		
 		List<Map> every = dhr.getSomeHospital(data);
 			map.put("every",every);
 			
-		int tot = dhr.getTotalCountByHospital();
-			map.put("size", tot/20 + (tot%20>0 ? 1: 0));
-		//----------------------------------------------------------------
-		
 		ModelAndView mav = new ModelAndView();
 		
 		mav.setViewName("master");
 		mav.addObject("top", "/WEB-INF/views/master/doghospital/top.jsp");
 		mav.addObject("main", "/WEB-INF/views/master/doghospital/index.jsp");
+		mav.addObject("every", every);
+		mav.addObject("paging", paging);
 		
 		return mav;
 	}
 	
 	@RequestMapping(path="/getdh.do", produces="application/json;charset=utf-8")
 	@ResponseBody
-	public ModelAndView getDogHospital(@RequestParam String gu, @RequestParam (required=false)String p, ModelMap map) {
-		List dhlist = dhr.getDogHospitalByGu(gu);
-			map.put("dhlist", dhlist);
+	public ModelAndView getDogHospital(@RequestParam String gu, @RequestParam(defaultValue = "1") int curPage, ModelMap map) {
 			
-		//---------------------------------------------------------------
-		int pp = (p == null) ? 1 : Integer.parseInt(p);
+		int listCnt = dhr.getTotalCountByGuHospital(gu);
+		
+		DogHospitalPageing paging = new DogHospitalPageing(listCnt, curPage);
 		
 		Map data = new HashMap();
-			data.put("s", 1 + (pp-1) * 20);
-			data.put("e", pp*20);
+			data.put("gu", gu);
+			data.put("s", paging.getStartIndex());
+			data.put("e", paging.getPageSize() * curPage);
+		System.out.println(data);
 		
-		List<Map> every = dhr.getSomeHospital(data);
+		List<Map> every = dhr.getSomeGuHospital(data);
 			map.put("every",every);
-			
-		int tot = dhr.getTotalCountByHospital();
-			map.put("size", tot/20 + (tot%20>0 ? 1: 0));
-		//----------------------------------------------------------------
 		
 		ModelAndView mav = new ModelAndView();
 		
 		mav.setViewName("master");
 		mav.addObject("top", "/WEB-INF/views/master/doghospital/top.jsp");
 		mav.addObject("main", "/WEB-INF/views/master/doghospital/select.jsp");
+		mav.addObject("every", every);
+		mav.addObject("paging", paging);
 		
 		return mav;
 		

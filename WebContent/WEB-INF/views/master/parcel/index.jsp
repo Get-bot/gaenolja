@@ -35,21 +35,43 @@
 	<a href="${pageContext.servletContext.contextPath }/new.do" class="btn btn-sm btn-outline-secondary" >글쓰기</a>
 		<nav aria-label="Page navigation example">
 		<ul class="pagination justify-content-center">
-			<c:forEach var="s" begin="1" end="${size }">
-					<c:choose>
-						<c:when test="${s==current}">
-							<li class="page-item active">
-    							 <a class="page-link" href="${pageContext.servletContext.contextPath }/parcel.do?p=${s}">${s }<span class="sr-only">(current)</span>
-    							 </a></li>	
-    						 </c:when>
-    						 <c:otherwise>
-    						 	<a class="page-link" href="${pageContext.servletContext.contextPath }/parcel.do?p=${s}">${s }</a>
-    						</c:otherwise>
-    					</c:choose>					
-				</c:forEach>
+			
+			<c:if test="${paging.curRange ne 1 }">
+				<a href="javascript:void(0)" onclick="parcelpaging(1)">[처음]</a>
+			</c:if>
+		
+			<c:if test="${paging.curRange ne 1 }">
+				<a href="javascript:void(0)" onclick="parcelpaging(${paging.prevPage})">[이전]</a>
+			</c:if>
+			
+			<c:forEach var="pageNum" begin="${paging.startPage }" end="${paging.endPage }">
+				<c:choose>
+					<c:when test="${pageNum eq paging.curPage }">
+						<span><a href="javascript:void(0)" onclick="parcelpaging(${pageNum})">${pageNum }</a></span>
+					</c:when>
+					<c:otherwise>
+						<a href="javascript:void(0)" onclick="parcelpaging(${pageNum})">${pageNum }</a>
+					</c:otherwise>
+				</c:choose>
+			</c:forEach>
+			<c:if test="${paging.curPage ne paging.pageCnt && paging.pageCnt > 0 }">
+				<a href="javascript:void(0)" onclick="parcelpaging(${paging.nextPage})">[다음]</a>
+			</c:if>
+			<c:if test="${paging.curPage ne paging.pageCnt && paging.pageCnt > 0 }">
+				<a href="javascript:void(0)" onclick="parcelpaging(${paging.pageCnt})">[끝]</a>
+			</c:if>
+			
 		</ul>
 		</nav>
 </div>
+
+<script type="text/javascript">
+
+	function parcelpaging(target) {
+		location.href = "${pageContext.servletContext.contextPath }/parcel.do?curPage=" + target;
+	}
+
+</script>
 
 
 

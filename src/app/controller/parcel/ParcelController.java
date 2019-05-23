@@ -34,34 +34,30 @@ public class ParcelController {
 	@Autowired
 	ParcelRepository parcelRepository;
 	
+	
 	// 분양게시판 index 페이지 게시물 전체 뽑아서 보여줌 / 게시물 리스트 출력 핸들러
 	@RequestMapping("/parcel.do")
-	public ModelAndView getAllByParcel(ModelMap map, @RequestParam (required=false)String p) {
-		List<Map> list = parcelRepository.getAllByParcel();
-			map.put("list", list);
+	public ModelAndView getAllByParcel(ModelMap map, @RequestParam (defaultValue = "1") int curPage) {
 		
-		//---------------------------------------------------------------
-		int pp = (p == null) ? 1 : Integer.parseInt(p);
+		int listCnt = parcelRepository.getTotalCountByParcel();
+		
+		PacelPaging pacelPaging = new PacelPaging(listCnt, curPage);
 		
 		Map data = new HashMap();
-			data.put("s", 1 + (pp-1) * 6);
-			data.put("e", pp*6);
+			data.put("s", pacelPaging.getStartIndex());
+			data.put("e", pacelPaging.getPageSize() * curPage);
+		System.out.println(data);
 			
-			map.put("current",pp);
-		
 		List<Map> every = parcelRepository.getSomeParcel(data);
 			map.put("every",every);
 			
-		int tot = parcelRepository.getTotalCountByParcel();
-		map.put("size", tot/6 + (tot%6>0 ? 1: 0));
-		//----------------------------------------------------------------
-		
 		ModelAndView mav = new ModelAndView();
 		
 			mav.setViewName("master");
 			mav.addObject("top", "/WEB-INF/views/master/parcel/top.jsp");
 			mav.addObject("main", "/WEB-INF/views/master/parcel/index.jsp");
-			mav.addObject("list", list);
+			mav.addObject("every", every);
+			mav.addObject("paging", pacelPaging);
 			
 		return mav;
 	}

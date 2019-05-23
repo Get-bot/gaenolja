@@ -39,4 +39,12 @@ public class DogHospitalRepository {
 		return template.selectOne("hospital.getTotalCountByHospital");
 	}
 	
+	public int getTotalCountByGuHospital(String gu) {
+		return template.selectOne("getTotalCountByGuHospital", gu);
+	}
+	
+	public List<Map> getSomeGuHospital(Map s) {
+		return template.selectList("getSomeGuHospital", s);
+	}
+	
 }

@@ -24,32 +24,26 @@ h4{
         </ol>
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <img class="first-slide" src="${pageContext.servletContext.contextPath }/image/dal.jpg" alt="First slide">
+            <img class="first-slide" src="${pageContext.servletContext.contextPath }/image/to.jpg" alt="First slide">
             <div class="container">
               <div class="carousel-caption text-left" style="color:black ">
-                <h1>민우네집 개달이</h1>
-                <h4> 안녕 나는 달이야. 여기서같이 개놀자!</h4>
-                <p><a class="btn btn-lg btn-success" href="${pageContext.servletContext.contextPath }/main/terms.do" role="button">Sign up today</a></p>
+                <p><a class="btn btn-lg btn-success" href="${pageContext.servletContext.contextPath }/together/mainboard.do?p=1" role="button">Click to 같이가시개</a></p>
               </div>
             </div>
           </div>
           <div class="carousel-item">
-            <img class="second-slide" src="${pageContext.servletContext.contextPath }/image/parcelbanner.jpg" style="width:70%;" alt="Second slide">
+            <img class="second-slide" src="${pageContext.servletContext.contextPath }/image/parcel.jpg" alt="Second slide">
             <div class="container">
-              <div class="carousel-caption text-right " style="color:maroon;">
-                <h1 >사지말고 입양해 주세요</h1>
-                <p>개놀자 공식 광고 입니다.</p>
-                <p><a class="btn btn-lg btn-warning" href="${pageContext.servletContext.contextPath }/parcel.do" role="button">Click to 키워주시개</a></p>
+              <div class="carousel-caption text-left " style="color:maroon;">
+                <p><a class="btn btn-lg btn-warning" href="${pageContext.servletContext.contextPath }/parcel.do" role="button">Click to 데려가시개</a></p>
               </div>
             </div>
           </div>
           <div class="carousel-item">
-            <img class="third-slide" src="${pageContext.servletContext.contextPath }/image/dog1.png" alt="Third slide">
+            <img class="third-slide" src="${pageContext.servletContext.contextPath }/image/find.jpg" alt="Third slide">
             <div class="container">
-              <div class="carousel-caption text-right">
-                <h1>시베리안 허스키</h1>
-                <p>이런 시베리안 허스키</p>
-                <p><a class="btn btn-lg btn-info" href="${pageContext.servletContext.contextPath }/board/main.do" role="button">Click to 개키피디아</a></p>
+              <div class="carousel-caption text-left">
+                <p><a class="btn btn-lg btn-info" href="${pageContext.servletContext.contextPath }/find/list.do" role="button">Click to 찾아주시개</a></p>
               </div>
             </div>
           </div>

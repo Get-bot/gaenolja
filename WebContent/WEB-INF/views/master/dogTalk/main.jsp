@@ -62,7 +62,7 @@
 	
 	var addComment = function(){
 		console.log("addComment Function");
-		var url = "/gaenolja/dogTalk/add.do";
+		var url = "${pageContext.servletContext.contextPath}/dogTalk/add.do";
 		console.log(document.getElementById("content").value);
 		console.log("${userInfo.DOGPROFILE}");		
 		var param = {

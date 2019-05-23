@@ -85,7 +85,7 @@ af.f {
 		</div>	
 		
 		<div class="col-md-6">
-		<div class="my-3 p-3 bg-white rounded shadow-sm border border-success">
+		<div class="my-3 p-3 bg-white rounded shadow-sm border border-success" >
 			<h6 class="border-bottom border-gray pb-2 mb-0">찾아주시개</h6>
 			<div class="container">
 				<div class="row">

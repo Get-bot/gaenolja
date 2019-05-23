@@ -78,7 +78,7 @@
 		
 	</websocket:handlers> 
 	
-	<mongo:mongo-client host="kkh.mockingu.com" port="15635"/>
+ 	<mongo:mongo-client host="kkh.mockingu.com" port="15635"/>
 	 <bean id = "mongoTemplate" class="org.springframework.data.mongodb.core.MongoTemplate">
 	 	<constructor-arg name = "mongoClient" ref="mongoClient"/>
 	 	<constructor-arg name = "databaseName" value = "dev"/>
